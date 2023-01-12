@@ -1,0 +1,127 @@
+<ion-menu side="start" menuId="first" content-id="main-content">
+  <ion-header>
+    <ion-toolbar translucent>
+      <ion-title style="text-align: center;">~ MENU ~</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list style="height: 100%;">
+      <ion-item> <!-- RETOUR AU MENU -->
+        <ion-icon name="home-outline" slot="start"></ion-icon>
+        <ion-button (click)="gomenu()" style="color: red;">HOME</ion-button>
+      </ion-item>
+      
+      <ion-item> <!-- POUR ADMIN => Ajouter un compte ou modifier les comptes| POUR USER => Ajouter un compte ou modifier ses informations -->
+        <ion-icon name="people-outline" slot="start"></ion-icon>
+        <ion-button (click)="gocomptes()">COMPTES</ion-button>
+      </ion-item>
+      <ion-item *ngIf="hab == 2"> <!-- POUR ADMIN => modifier les produits -->
+        <ion-icon name="prism-outline" slot="start"></ion-icon>
+        <ion-button (click)="goproduits()">PRODUITS</ion-button>
+      </ion-item>
+
+      <ion-item> <!-- POUR ADMIN ET USER => Voir le catalogue des produits mis a disposition -->
+        <ion-icon name="grid-outline" slot="start"></ion-icon>
+        <ion-button (click)="gocatalogue()">CATALOGUE</ion-button>
+      </ion-item>
+
+      <ion-item> <!-- POUR ADMIN => Voir toutes les commandes passé | POUR USER => Voir les anciennes commandes du clients -->
+        <ion-icon name="folder-outline" slot="start"></ion-icon>
+        <ion-button (click)="gocommandes()">COMMANDES</ion-button>
+      </ion-item>
+
+      <ion-item position="bottom"> <!-- DECONNEXION -->
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        <ion-button (click)="gologin()">LOGOUT</ion-button>
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+      
+      <div style="text-align: center; width: 100%;">
+        <h1>HOME</h1>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+
+    <br>
+    <div class="menugrid">
+      <div></div>
+      
+      <ion-button expand="block" color="medium" style="height: 2vw;" (click)="gomenu()">HOME</ion-button>
+      <ion-button expand="block" color="light" style="height: 2vw;" (click)="gocomptes()">COMPTES</ion-button>
+      <ion-button *ngIf="hab == 2" expand="block" color="light" style="height: 2vw;" (click)="goproduits()">PRODUITS</ion-button>
+      <ion-button expand="block" color="light" style="height: 2vw;" (click)="gocatalogue()">CATALOGUE</ion-button>
+      <ion-button expand="block" color="light" style="height: 2vw;" (click)="gocommandes()">COMMANDES</ion-button>
+      <ion-button expand="block" color="light" style="height: 2vw;" (click)="gologin()">LOGOUT</ion-button>
+
+      <div></div>
+    </div>
+    
+    <div class="maingrid1">
+      <div class="div1">
+        <div class="smallgrid1">
+          <div>
+            <h1 style="text-align: center;">Gamer Place</h1>
+            <h2 style="margin-left: 20px; text-align: justify;">
+              Bienvenue sur notre site de vente d'équipement d'informatique pour gamer !<br>
+              <br>
+              Vous trouverez ici tout ce dont vous avez besoin, que ce soit pour votre 1er équipment de véritable maitre de jeu, ou bien pour perfectionner
+              votre setup.<br>
+              En effet, nous avons de nombreux choix dans notre boutique tel que des pc, des écrans, des bureaux et bien d'autre.<br>
+              <br>
+              Tous nos articles viennent de grandes marque alors vous pouvez y allé les yeux fermés !
+
+            </h2>
+          </div>
+          
+          <div> </div>
+          
+          <div>
+            <div style="height: 100%;">
+              <img src="../../assets/picture.png" style="height: 100%; width:100%; object-fit: cover;">
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="maingrid2">
+      <div class="div1">
+        <div class="smallgrid2">
+
+          <div></div>
+
+          <div>
+            <h1 style="text-align: center;">Gamer Place</h1>
+            <h2 style="margin-left: 20px; text-align: justify;">
+              Bienvenue sur notre site de vente d'équipement d'informatique pour gamer !<br>
+              <br>
+              Vous trouverez ici tout ce dont vous avez besoin, que ce soit pour votre 1er équipment de véritable maitre de jeu, ou bien pour perfectionner
+              votre setup.<br>
+              En effet, nous avons de nombreux choix dans notre boutique tel que des pc, des écrans, des bureaux et bien d'autre.<br>
+              <br>
+              Tous nos articles viennent de grandes marque alors vous pouvez y allé les yeux fermés !
+
+            </h2>
+          </div>
+
+          <div></div>
+        </div>
+
+      </div>
+    </div>
+  </ion-content>
+</div>

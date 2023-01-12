@@ -1,0 +1,36 @@
+<ion-content [fullscreen]="true">
+  <div class="maingrid"> <!-- grid -->
+    <div class="div1"> <!-- login div -->
+      <div class="smallgrid">
+        <div class="div2">
+          <h1 style="text-align: center; font-size: 40px;">Login</h1>
+        </div>
+        <div class="div3">
+          <form [formGroup]="ionicForm" (ngSubmit)="submitForm()">
+
+            <br>
+    
+            <ion-item lines="full" color=" " style="width: 70%; margin-left: 15%; border-radius: 15px;">
+              <ion-icon slot="start" name="person-outline"></ion-icon>
+              <ion-label position="floating">Identifiant</ion-label>
+              <ion-input formControlName="identifiant" type="text"></ion-input>
+            </ion-item>
+    
+            <br>
+    
+            <ion-item lines="full" color=" " style="width: 70%; margin-left: 15%; border-radius: 15px;">
+              <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+              <ion-label position="floating">Password</ion-label>
+              <ion-input formControlName="password" type="password"></ion-input>
+            </ion-item>
+    
+            <br>
+    
+            <ion-button type="submit" expand="block" style="width: 60%; margin-left: auto; margin-right: auto;">LOGIN</ion-button>
+    
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>

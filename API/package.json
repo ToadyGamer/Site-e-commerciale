@@ -1,0 +1,16 @@
+{
+  "name": "site-r-commerce",
+  "version": "1.0.0",
+  "description": "api for the e commerce sit",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "author": "CASTELLIER Florian",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3"
+  }
+}

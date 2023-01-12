@@ -1,0 +1,176 @@
+<ion-menu side="start" content-id="main-content">
+  <ion-header>
+    <ion-toolbar translucent>
+      <ion-title style="text-align: center;">~ MENU ~</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list style="height: 100%;">
+      <ion-item> <!-- RETOUR AU MENU -->
+        <ion-icon name="home-outline" slot="start"></ion-icon>
+        <ion-button (click)="gomenu()">HOME</ion-button>
+      </ion-item>
+
+      <ion-item> <!-- POUR ADMIN => Ajouter un compte ou modifier les comptes| POUR USER => Ajouter un compte ou modifier ses informations -->
+        <ion-icon name="people-outline" slot="start"></ion-icon>
+        <ion-button (click)="gocomptes()" style="color: red;">COMPTES</ion-button>
+      </ion-item>
+
+      <ion-item *ngIf="hab == 2"> <!-- POUR ADMIN => modifier les produits -->
+        <ion-icon name="prism-outline" slot="start"></ion-icon>
+        <ion-button (click)="goproduits()">PRODUITS</ion-button>
+      </ion-item>
+
+      <ion-item> <!-- POUR ADMIN ET USER => Voir le catalogue des produits mis a disposition -->
+        <ion-icon name="grid-outline" slot="start"></ion-icon>
+        <ion-button (click)="gocatalogue()">CATALOGUE</ion-button>
+      </ion-item>
+
+      <ion-item> <!-- POUR ADMIN => Voir toutes les commandes passé | POUR USER => Voir les anciennes commandes du clients -->
+        <ion-icon name="folder-outline" slot="start"></ion-icon>
+        <ion-button (click)="gocommandes()">COMMANDES</ion-button>
+      </ion-item>
+
+      <ion-item position="bottom"> <!-- DECONNEXION -->
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        <ion-button (click)="gologin()">LOGOUT</ion-button>
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+
+      <div style="text-align: center; width: 100%;">
+        <h1>COMPTES</h1>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+
+    <br>
+    <div class="menugrid">
+      <div></div>
+      
+      <ion-button expand="block" color="light" style="height: 2vw;" (click)="gomenu()">HOME</ion-button>
+      <ion-button expand="block" color="medium" style="height: 2vw;" (click)="gocomptes()">COMPTES</ion-button>
+      <ion-button *ngIf="hab == 2" expand="block" color="light" style="height: 2vw;" (click)="goproduits()">PRODUITS</ion-button>
+      <ion-button expand="block" color="light" style="height: 2vw;" (click)="gocatalogue()">CATALOGUE</ion-button>
+      <ion-button expand="block" color="light" style="height: 2vw;" (click)="gocommandes()">COMMANDES</ion-button>
+      <ion-button expand="block" color="light" style="height: 2vw;" (click)="gologin()">LOGOUT</ion-button>
+  
+      <div></div>
+    </div>
+    
+    <div class="grid1">
+
+      <div> </div>
+
+      <div>
+        <ion-card *ngFor="let user of users; let index = index">
+          <div *ngIf="index%2 == 0">
+            <ion-card-header>
+              <ion-card-title>USER {{user.id_user}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <h1>Nom : {{user.nom}}</h1>
+              <h1>Prenom : {{user.prenom}}</h1>
+              <h1>Identifiant : {{user.identifiant}}</h1>
+              <h1>Mot de passe : {{user.password}}</h1>
+              <h1>Habilitation : {{user.libelle}}</h1>
+              <br>
+              <ion-button type="submit" expand="block" class="btform" (click)="gocompte(user.id_user)">MODIFIER</ion-button>
+              <ion-button type="submit" expand="block" class="btform" (click)="comptesuppression(user.id_user, user.nom, user.prenom)" *ngIf="hab == 2">SUPPRIMER</ion-button>
+              <br>
+            </ion-card-content>
+          </div>
+        </ion-card>
+      </div>
+      
+      <div>
+        <ion-card *ngIf="hab == 2">
+          <div>
+            <ion-card-header>
+              <ion-card-title>AJOUT</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-button type="submit" expand="block" class="btform" (click)="comptecreation()">CREATION</ion-button>
+            </ion-card-content>
+          </div>
+        </ion-card>
+      </div>
+
+      <div>
+        <ion-card *ngFor="let user of users; let index = index">
+          <div *ngIf="index%2 == 1">
+            <ion-card-header>
+              <ion-card-title>USER {{user.id_user}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <h1>Nom : {{user.nom}}</h1>
+              <h1>Prenom : {{user.prenom}}</h1>
+              <h1>Identifiant : {{user.identifiant}}</h1>
+              <h1>Mot de passe : {{user.password}}</h1>
+              <h1>Habilitation : {{user.libelle}}</h1>
+              <br>
+              <ion-button type="submit" expand="block" class="btform" (click)="gocompte(user.id_user)">MODIFIER</ion-button>
+              <ion-button type="submit" expand="block" class="btform" (click)="comptesuppression(user.id_user, user.nom, user.prenom)">SUPPRIMER</ion-button>
+              <br>
+            </ion-card-content>
+          </div>
+        </ion-card>
+      </div>
+
+      <div> </div>
+
+    </div>
+
+    <div class="grid2">
+
+      <div> </div>
+
+      <div>
+        <ion-card *ngIf="hab == 2">
+          <div>
+            <ion-card-header>
+              <ion-card-title>AJOUT</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-button type="submit" expand="block" class="btform" (click)="comptecreation()">CREATION</ion-button>
+            </ion-card-content>
+          </div>
+        </ion-card>
+
+        <ion-card *ngFor="let user of users; let index = index">
+          <div>
+            <ion-card-header>
+              <ion-card-title>USER {{user.id_user}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+              <h1>Nom : {{user.nom}}</h1>
+              <h1>Prenom : {{user.prenom}}</h1>
+              <h1>Identifiant : {{user.identifiant}}</h1>
+              <h1>Mot de passe : {{user.password}}</h1>
+              <h1>Habilitation : {{user.libelle}}</h1>
+              <br>
+              <ion-button type="submit" expand="block" class="btform" (click)="gocompte(user.id_user)">MODIFIER</ion-button>
+              <ion-button type="submit" expand="block" class="btform" (click)="comptesuppression(user.id_user, user.nom, user.prenom)" *ngIf="hab == 2">SUPPRIMER</ion-button>
+              <br>
+            </ion-card-content>
+          </div>
+        </ion-card>
+      </div>
+      
+      <div> </div>
+
+    </div>
+  </ion-content>
+</div>

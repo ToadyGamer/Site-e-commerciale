@@ -1,0 +1,94 @@
+<ion-menu side="start" content-id="main-content">
+  <ion-header>
+    <ion-toolbar translucent>
+      <ion-title style="text-align: center;">~ MENU ~</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    <ion-list style="height: 100%;">
+      <ion-item> <!-- RETOUR AU MENU -->
+        <ion-icon name="home-outline" slot="start"></ion-icon>
+        <ion-button (click)="gomenu()">HOME</ion-button>
+      </ion-item>
+
+      <ion-item> <!-- POUR ADMIN => Ajouter un compte ou modifier les comptes| POUR USER => Ajouter un compte ou modifier ses informations -->
+        <ion-icon name="people-outline" slot="start"></ion-icon>
+        <ion-button (click)="gocomptes()">COMPTES</ion-button>
+      </ion-item>
+
+      <ion-item *ngIf="hab == 2"> <!-- POUR ADMIN => modifier les produits -->
+        <ion-icon name="prism-outline" slot="start"></ion-icon>
+        <ion-button (click)="goproduits()" style="color: red;">PRODUITS</ion-button>
+      </ion-item>
+
+      <ion-item> <!-- POUR ADMIN ET USER => Voir le catalogue des produits mis a disposition -->
+        <ion-icon name="grid-outline" slot="start"></ion-icon>
+        <ion-button (click)="gocatalogue()">CATALOGUE</ion-button>
+      </ion-item>
+
+      <ion-item> <!-- POUR ADMIN => Voir toutes les commandes passé | POUR USER => Voir les anciennes commandes du clients -->
+        <ion-icon name="folder-outline" slot="start"></ion-icon>
+        <ion-button (click)="gocommandes()">COMMANDES</ion-button>
+      </ion-item>
+
+      <ion-item position="bottom"> <!-- DECONNEXION -->
+        <ion-icon name="log-out-outline" slot="start"></ion-icon>
+        <ion-button (click)="gologin()">LOGOUT</ion-button>
+      </ion-item>
+
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+
+      <div style="text-align: center; width: 100%;">
+        <h1>PRODUITS</h1>
+      </div>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    
+    <br>
+    <div class="menugrid">
+      <div></div>
+      
+      <ion-button expand="block" color="light" style="height: 2vw;" (click)="gomenu()">HOME</ion-button>
+      <ion-button expand="block" color="light" style="height: 2vw;" (click)="gocomptes()">COMPTES</ion-button>
+      <ion-button *ngIf="hab == 2" expand="block" color="medium" style="height: 2vw;" (click)="goproduits()">PRODUITS</ion-button>
+      <ion-button expand="block" color="light" style="height: 2vw;" (click)="gocatalogue()">CATALOGUE</ion-button>
+      <ion-button expand="block" color="light" style="height: 2vw;" (click)="gocommandes()">COMMANDES</ion-button>
+      <ion-button expand="block" color="light" style="height: 2vw;" (click)="gologin()">LOGOUT</ion-button>
+  
+      <div></div>
+    </div>
+
+    <div class="grid">
+      <div class="div1">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>MODIFICATION D'UNE PHOTO</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <form [formGroup]="ionicForm" (ngSubmit)="submitForm()">
+              <ion-item lines="full" color=" " style="width: 70%; margin-left: 15%; border-radius: 15px;">
+                <ion-label position="floating">Lien</ion-label>
+                <ion-input formControlName="lien" type="text"></ion-input>
+              </ion-item>
+              <br>
+              <ion-button type="submit" expand="block" class="btform">MODIFIER</ion-button>
+              <br>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+  </ion-content>
+</div>

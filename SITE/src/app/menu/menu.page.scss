@@ -1,0 +1,72 @@
+ion-content {
+  --background: url(../../assets/Background/Background_login.jpg) 0 0/100% 100% no-repeat;
+}
+
+ion-button{
+--ion-color-btn: rgba(255,255,255,0);
+width: 100%;  
+height: 100%;
+--background: var(--ion-color-btn);
+}
+
+.menugrid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 0px;
+}
+
+.btform{
+width: 100%;  
+height: 3vw;
+}
+
+.maingrid1 {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.3fr 1fr 0.3fr;
+  grid-template-rows: 1fr 4fr 1fr;
+}
+.smallgrid1 {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.5fr 0.1fr 0.5fr;
+}
+
+.maingrid2 {
+  grid-template-columns: 0.1fr 1fr 0.1fr;
+  grid-template-rows: 1fr 4fr 1fr;
+  height: 100%;
+  display: none;
+}
+
+.smallgrid2 {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 0.1fr 1fr 0.1fr;
+}
+
+.div1{
+  background-color: rgba($color: #000000, $alpha: 0.2);
+  border-radius: 25px;
+  grid-area: 2 / 2 / 3 / 3;
+}
+
+@media only screen and (max-width: 920px) {
+  .btform{
+    width: 100%;  
+    height: 6vw;
+  }
+
+  .maingrid1{
+    display: none;
+  }
+
+  .maingrid2{
+    display: grid;
+  }
+}
