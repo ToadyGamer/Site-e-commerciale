@@ -7,6 +7,13 @@ Ce projet concerne un site de vente concernant le matériel informatique.
 => *WAMPSERVER*  
 
 1 : Il faut tout d'abord importer la BDD dans wampserver.  
+Pour cela, dirigez vous sur wamp server et suivez ces étapes :  
+1 => Cliquez sur l'onglet "Importer".  
+2 => Importez le fichier "bdd_ecommerce.sql".  
+3 => Vérifiez que c'est le bon fichier.  
+4 => Vérifiez que le format est bien "SQL".  
+5 => Cliquez sur "Exécuter".  
+![image](https://user-images.githubusercontent.com/24752964/212662120-c2e7406c-db3c-426b-8893-829ecdf454d8.png)
 
 2 : Pour lancer le site, il faut lancer le cmd sur le chemin du site.  
 ![image](https://user-images.githubusercontent.com/24752964/212487660-7e483906-d082-4142-bfb0-33df2e1db47f.png)  
